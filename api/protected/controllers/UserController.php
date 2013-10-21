@@ -12,10 +12,32 @@ class UserController extends Controller
 {
     public function actionLogin()
     {
-        echo json_encode(array('status'=>true,'message'=>'123'));
+        $model = new LoginForm();
+        $result = array('status' => 0);
+        if (isset($_POST['user'])) {
+            $model->attributes = $_POST['user'];
+            if ($model->validate() && $model->login()) {
+                $result = array('status' => 1);
+            }else{
+                $result['message'] =$model->getErrors();
+            }
+        }
+        echo json_encode($result);
     }
 
-    public function actionRegister(){
-        echo json_encode(array('status'=>true,'message'=>'123'));
+    public function actionRegister()
+    {
+        $model = new user();
+        $result = array('status' => 0);
+
+        if (isset($_POST['user'])) {
+            $model->attributes = $_POST['user'];
+            if ($model->register()) {
+                $result = array('status' => 1);
+            }else{
+                $result['message'] =$model->getErrors();
+            }
+        }
+        echo json_encode($result);
     }
 }

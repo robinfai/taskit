@@ -30,11 +30,11 @@ taskItApp.directive('userForm', function () {
                 rules: [
                     {
                         type: 'empty',
-                        prompt: 'Please enter a username'
+                        prompt: '请输入用户名'
                     },
                     {
                         type: 'length[6]',
-                        prompt: 'Your username must be at least 6 characters'
+                        prompt: '用户名最少长度为6位'
                     }
                 ]
             },
@@ -43,17 +43,26 @@ taskItApp.directive('userForm', function () {
                 rules: [
                     {
                         type: 'empty',
-                        prompt: 'Please enter a password'
+                        prompt: '请输入密码'
                     },
                     {
                         type: 'length[6]',
-                        prompt: 'Your password must be at least 6 characters'
+                        prompt: '密码最少长度为6位'
+                    },
+                    {
+                        type:'login',
+                        prompt:'用户名或密码不正确'
                     }
                 ]
             }
+
+
         }, {
-            inline: true,
-            on: 'blur'
+            rules:{
+                login:function(){
+                    return $scope.login();
+                }
+            }
         });
         $scope.isInvalid = function () {
             return !$element.form('validate form');
@@ -67,17 +76,33 @@ taskItAppControllers.controller('LoginController',['$scope', '$http',
         $scope.user.username = 'user123';
         $scope.user.password = 'user123';
         $scope.requestUrl = apiUrl+'/user/login';
+        $scope.login = function(){
+            var result;
+            var data = {user:$scope.user};
+            $.ajax({
+                method:'post',
+                data:data,
+                dataType:'json',
+                url:this.requestUrl,
+                async:false,
+                success:function(json){
+                    result = json.status;
+                    if(json.status){
+                        $scope.user.username = json.message;
+                        $scope.loading = false;
+                    }else{
+                        $scope.loading = false;
+                    }
+                }
+            })
+            return result;
+        }
         $scope.submit = function () {
             if (this.isInvalid()) {
                 return;
             }
             this.loading = true;
-            $http.get(this.requestUrl).success(function(json){
-                if(json.status){
-                    $scope.user.username = json.message;
-                    $scope.loading = false;
-                }
-            });
+
         }
 
     }]);
@@ -92,11 +117,13 @@ taskItAppControllers.controller('RegisterController',['$scope', '$http',
                 return;
             }
             this.loading = true;
-            $http.get(this.requestUrl).success(function(json){
-                console.log(json)
+            var data = {user:$scope.user};
+            $http({method:'post',data:data,url:this.requestUrl}).success(function(json){
                 if(json.status){
                     $scope.user.username = json.message;
                     $scope.loading = false;
+                }else{
+                    $scope.user.username = json.message;j
                 }
             });
         }
