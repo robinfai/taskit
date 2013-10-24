@@ -1,0 +1,30 @@
+<div class="ui form ng-class: errorClass;" ng-controller="RegisterController" user-form>
+    <div class="field">
+        <label>Username</label>
+
+        <div class="ui left labeled icon input">
+            <input name="username" type="text" placeholder="Username" ng-model='user.username'>
+            <i class="user icon"></i>
+
+            <div class="ui corner label">
+                <i class="icon asterisk"></i>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>Password</label>
+
+        <div class="ui left labeled icon input">
+            <input name="password" type="password" ng-model='user.password'>
+            <i class="lock icon"></i>
+
+            <div class="ui corner label">
+                <i class="icon asterisk"></i>
+            </div>
+        </div>
+    </div>
+    <div class="ui error message">
+        <div class="header">We noticed some issues</div>
+    </div>
+    <div class="ui green button" ng-click="submit()">Register</div>
+</div>

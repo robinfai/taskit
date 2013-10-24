@@ -19,7 +19,7 @@ class UserController extends Controller
             if ($model->validate() && $model->login()) {
                 $result = array('status' => 1);
             }else{
-                $result['message'] =$model->getErrors();
+                $result['message'] = implode("\t",array_shift($model->getErrors()));
             }
         }
         echo json_encode($result);
@@ -35,7 +35,7 @@ class UserController extends Controller
             if ($model->register()) {
                 $result = array('status' => 1);
             }else{
-                $result['message'] =$model->getErrors();
+                $result['message'] = implode("\t",$model->getErrors());
             }
         }
         echo json_encode($result);

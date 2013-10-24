@@ -15,7 +15,7 @@ taskItApp.config(['$routeProvider',
         $routeProvider.
             when('/user-form', {
                 templateUrl: 'partials/user-form.html',
-                controller: 'LoginController'
+                controller: 'UserFormController'
             }).
             otherwise({
                 redirectTo: '/user-form'
@@ -48,69 +48,52 @@ taskItApp.directive('userForm', function () {
                     {
                         type: 'length[6]',
                         prompt: '密码最少长度为6位'
-                    },
-                    {
-                        type:'login',
-                        prompt:'用户名或密码不正确'
                     }
                 ]
-            }
-
-
-        }, {
-            rules:{
-                login:function(){
-                    return $scope.login();
-                }
             }
         });
         $scope.isInvalid = function () {
             return !$element.form('validate form');
         };
+        $scope.showError = function (message) {
+            $scope.errorClass = 'error';
+            $scope.errorMessage = message;
+            $scope.loading = false;
+        }
+        $scope.success = function (){
+            //$scope.user.username = json.message;
+            //$scope.loading = false;
+        }
     }
 });
 var taskItAppControllers = angular.module('taskItAppControllers', []);
+taskItAppControllers.controller('UserFormController',['$scope',
+    function UserFormController($scope) {
+        $scope.user = {};
+        $scope.loginTemplate = 'partials/user-form/login.html';
+        $scope.registerTemplate = 'partials/user-form/register.html';
+        $scope.errorClass = '';
+    }]);
 taskItAppControllers.controller('LoginController',['$scope', '$http',
     function LoginController($scope,$http) {
-        $scope.user = {};
-        $scope.user.username = 'user123';
-        $scope.user.password = 'user123';
         $scope.requestUrl = apiUrl+'/user/login';
-        $scope.login = function(){
-            var result;
-            var data = {user:$scope.user};
-            $.ajax({
-                method:'post',
-                data:data,
-                dataType:'json',
-                url:this.requestUrl,
-                async:false,
-                success:function(json){
-                    result = json.status;
-                    if(json.status){
-                        $scope.user.username = json.message;
-                        $scope.loading = false;
-                    }else{
-                        $scope.loading = false;
-                    }
-                }
-            })
-            return result;
-        }
         $scope.submit = function () {
             if (this.isInvalid()) {
                 return;
             }
             this.loading = true;
-
+            var data = {user:$scope.user};
+            $http({method:'post',data:data,url:this.requestUrl}).success(function(json){
+                if(json.status){
+                    $scope.success();
+                }else{
+                    $scope.showError(json.message);
+                }
+            });
         }
-
     }]);
 taskItAppControllers.controller('RegisterController',['$scope', '$http',
     function RegisterController($scope,$http) {
-        $scope.user = {};
-        $scope.user.username = 'user123';
-        $scope.user.password = 'user123';
         $scope.requestUrl = apiUrl+'/user/register';
         $scope.submit = function () {
             if (this.isInvalid()) {
