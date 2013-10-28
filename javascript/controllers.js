@@ -38,4 +38,14 @@ define(['app','semantic','directives'], function(app) {
                 $injector.invoke(RegisterController, this, {'$scope': $scope});
             });
         }]);
+    app.controller('HomeController',['$scope', '$injector',
+        function HomeController($scope,$injector) {
+            require(['controllers/HomeController'], function(HomeController){
+                // injector method takes an array of modules as the first argument
+                // if you want your controller to be able to use components from
+                // any of your other modules, make sure you include it together with 'ng'
+                // Furthermore we need to pass on the $scope as it's unique to this controller
+                $injector.invoke(HomeController, this, {'$scope': $scope});
+            });
+        }]);
 });

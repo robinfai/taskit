@@ -8,7 +8,8 @@
 require.config({
     paths: {
         angular:'angular',
-        angularRoute: 'angular/angular-route'
+        angularRoute: 'angular/angular-route',
+        angularAnimate: 'angular/angular-animate'
         //jquery:'jquery'
         //angularMocks: '../../bower_components/angular-mocks/angular-mocks',
         //text: '../../bower_components/requirejs-text/text'
@@ -20,6 +21,7 @@ require.config({
             'exports' : 'angular'
         },
         'angularRoute': ['angular'],
+        'angularAnimate': ['angular'],
         'semantic':['jquery'],
         'jquery':{'exports':'$'}
     },
