@@ -9,7 +9,6 @@ define([], function() {
     return ['$scope', '$http', function($scope, $http) {
         // You can access the scope of the controller from here
         $scope.requestUrl = apiUrl+'/user/login';
-        console.log(1)
         $scope.submit = function () {
             console.log(1)
             if (this.isInvalid()) {
