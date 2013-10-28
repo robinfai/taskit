@@ -8,48 +8,34 @@
 define(['app','semantic','directives'], function(app) {
     'use strict';
 
-    app.controller('UserFormController',['$scope',
-        function UserFormController($scope) {
-            $scope.user = {};
-            $scope.loginTemplate = 'partials/user-form/login.html';
-            $scope.registerTemplate = 'partials/user-form/register.html';
-            $scope.errorClass = '';
+    app.controller('UserFormController',['$scope','$injector',
+        function UserFormController($scope,$injector) {
+            require(['controllers/UserFormController'], function(UserFormController) {
+                // injector method takes an array of modules as the first argument
+                // if you want your controller to be able to use components from
+                // any of your other modules, make sure you include it together with 'ng'
+                // Furthermore we need to pass on the $scope as it's unique to this controller
+                $injector.invoke(UserFormController, this, {'$scope': $scope});
+            });
         }]);
-    app.controller('LoginController',['$scope', '$http',
-        function LoginController($scope,$http) {
-            $scope.requestUrl = apiUrl+'/user/login';
-            $scope.submit = function () {
-                if (this.isInvalid()) {
-                    return;
-                }
-                this.loading = true;
-                var data = {user:$scope.user};
-                $http({method:'post',data:data,url:this.requestUrl}).success(function(json){
-                    if(json.status){
-                        $scope.success();
-                    }else{
-                        $scope.showError(json.message);
-                    }
-                });
-            }
+    app.controller('LoginController',['$scope', '$injector',
+        function LoginController($scope,$injector) {
+            require(['controllers/LoginController'], function(LoginController) {
+                // injector method takes an array of modules as the first argument
+                // if you want your controller to be able to use components from
+                // any of your other modules, make sure you include it together with 'ng'
+                // Furthermore we need to pass on the $scope as it's unique to this controller
+                $injector.invoke(LoginController, this, {'$scope': $scope});
+            });
         }]);
-    app.controller('RegisterController',['$scope', '$http',
-        function RegisterController($scope,$http) {
-            $scope.requestUrl = apiUrl+'/user/register';
-            $scope.submit = function () {
-                if (this.isInvalid()) {
-                    return;
-                }
-                this.loading = true;
-                var data = {user:$scope.user};
-                $http({method:'post',data:data,url:this.requestUrl}).success(function(json){
-                    if(json.status){
-                        $scope.user.username = json.message;
-                        $scope.loading = false;
-                    }else{
-                        $scope.user.username = json.message;j
-                    }
-                });
-            }
+    app.controller('RegisterController',['$scope', '$injector',
+        function RegisterController($scope,$injector) {
+            require(['controllers/RegisterController'], function(RegisterController) {
+                // injector method takes an array of modules as the first argument
+                // if you want your controller to be able to use components from
+                // any of your other modules, make sure you include it together with 'ng'
+                // Furthermore we need to pass on the $scope as it's unique to this controller
+                $injector.invoke(RegisterController, this, {'$scope': $scope});
+            });
         }]);
 });
