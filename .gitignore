@@ -2,3 +2,6 @@
 /api/protected/runtime
 /ui
 /.idea
+assets/
+protected/runtime/
+themes/classic/views/
