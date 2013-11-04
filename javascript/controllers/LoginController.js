@@ -5,21 +5,22 @@
  * Time: 上午8:26
  * To change this template use File | Settings | File Templates.
  */
-define([], function() {
-    return ['$scope', '$http', function($scope, $http) {
+define([], function () {
+    return ['$scope', '$http', '$location', function ($scope, $http, $location) {
         // You can access the scope of the controller from here
-        $scope.requestUrl = apiUrl+'/user/login';
+        $scope.requestUrl = apiUrl + '/user/login';
         $scope.submit = function () {
-            console.log(1)
+            $location.path('/home');
+            return;
             if (this.isInvalid()) {
                 return;
             }
             this.loading = true;
-            var data = {user:$scope.user};
-            $http({method:'post',data:data,url:this.requestUrl}).success(function(json){
-                if(json.status){
+            var data = {user: $scope.user};
+            $http({method: 'post', data: data, url: this.requestUrl}).success(function (json) {
+                if (json.status) {
                     $scope.success();
-                }else{
+                } else {
                     $scope.showError(json.message);
                 }
             });

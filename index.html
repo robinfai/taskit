@@ -5,12 +5,10 @@
     <title>Task it</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/semantic.css">
-    <!--<script src="javascript/jquery.js"></script>-->
-    <!--<script src="javascript/semantic.js"></script>-->
-    <!--<script src="javascript/angular.js"></script>-->
-    <!--<script src="javascript/angular/angular-route.js"></script>-->
 </head>
-<body>
+<body ng-controller="AppController">
+<div ng-include src="'partials/layout/top.html'"></div>
+<div ng-include src="'partials/layout/left.html'"></div>
 <div ng-view class="view-container"></div>
 
 <script type="text/javascript" data-main="javascript/main" src="javascript/require.js"></script>

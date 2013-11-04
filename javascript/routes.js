@@ -19,6 +19,10 @@ define(['angular', 'app','controllers'], function(angular, app) {
                     templateUrl: 'partials/home.html',
                     controller: 'HomeController'
                 }).
+                when('/task/all', {
+                    templateUrl: 'partials/home.html',
+                    controller: 'HomeController'
+                }).
                 otherwise({
                     redirectTo: '/user-form'
                 });

@@ -1,14 +1,12 @@
 /**
- * Created by robinfai on 10/29/13.
+ * Created by robinfai on 11/3/13.
  */
 define([], function () {
     return ['$scope', '$http', '$location', function ($scope, $http, $location) {
         // You can access the scope of the controller from here
-        $scope.template = {url:"partials/task/all.html"};
-        $scope.link = function($event){
-            console.log($event.target)
+        $scope.logout = function () {
+            $location.path("/user-form");
         }
-        $scope.xxx='xxx123'
         // because this has happened asynchroneusly we've missed
         // Angular's initial call to $apply after the controller has been loaded
         // hence we need to explicityly call it at the end of our Controller constructor

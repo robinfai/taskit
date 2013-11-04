@@ -8,6 +8,16 @@
 define(['app','semantic','directives'], function(app) {
     'use strict';
 
+    app.controller('AppController',['$scope','$injector',
+        function AppController($scope,$injector) {
+            require(['controllers/AppController'], function(AppController) {
+                // injector method takes an array of modules as the first argument
+                // if you want your controller to be able to use components from
+                // any of your other modules, make sure you include it together with 'ng'
+                // Furthermore we need to pass on the $scope as it's unique to this controller
+                $injector.invoke(AppController, this, {'$scope': $scope});
+            });
+        }]);
     app.controller('UserFormController',['$scope','$injector',
         function UserFormController($scope,$injector) {
             require(['controllers/UserFormController'], function(UserFormController) {
