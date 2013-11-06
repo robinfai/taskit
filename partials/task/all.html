@@ -1,1 +1,24 @@
-all
+<div class="ui grid task" ng-controller="TaskAllController" style="height: 100%">
+    <div class="row" style="height: 100%">
+        <div class="four wide column task-list">
+            <div class="ui vertical fluid menu" style="height: 100%">
+                <div class="header item" ng-click="test()">
+                    全部项目
+                </div>
+                <div class="item" ng-repeat="item in items">
+                    <div class="ui list">
+                        <div class="item">
+                            <div class="content">
+                                <div class="header">{{$index + 1}}.{{item.title}}</div>
+                                {{item.content}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="eight wide column">
+            123
+        </div>
+    </div>
+</div>
