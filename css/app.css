@@ -1,10 +1,22 @@
 @import url(logo-animate.css);
-@import url(view-container-animate.css);
+/*@import url(view-container-animate.css);*/
+@import url(ng-repeat-animate.css);
 
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+.view-container {
+    display: block;
+    width: 100%;
+    border-left: 1px solid black;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 #logo{
     width:200px;
@@ -27,14 +39,16 @@ body {
 #left-sidebar {
     top: 43px;
 }
+#left-sidebar i.icon{
+    margin-top: -0.5em;
+    font-size: 0.5em;
+}
 .ng-enter #left-sidebar,
 .ng-leave #left-sidebar{
     position: absolute;
 }
 
-/*#top-menu{*/
-    /*top:1px;*/
-/*}*/
+
 
 .ui.menu:after{
     height: 100%;
