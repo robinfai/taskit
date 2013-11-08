@@ -6,6 +6,9 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: #555555;
 }
 .view-container {
     display: block;
@@ -38,17 +41,25 @@ body {
 
 #left-sidebar {
     top: 43px;
+    overflow: hidden;
 }
 #left-sidebar i.icon{
     margin-top: -0.5em;
     font-size: 0.5em;
 }
+
+.ui.modal.add-project{
+    width:40%;
+    margin-left: -20%;
+    margin-top:-190px;
+}
+
+
+
 .ng-enter #left-sidebar,
 .ng-leave #left-sidebar{
     position: absolute;
 }
-
-
 
 .ui.menu:after{
     height: 100%;
@@ -95,4 +106,26 @@ body {
 }
 .task .menu{
     height: 100%;
+}
+
+@media only screen and (min-width: 1750px) {
+    .ui.modal {
+        width:46%;
+        margin-left:-23%
+    }
+}
+.ui.modal > .close{
+    top:10px;
+    right:5px;
+    color:#999;
+}
+.ui.modal>.content>.left:not(.ui) {
+    display: table-cell;
+    padding-right: 1.5%;
+    min-width: 25%;
+}
+.ui.modal>.content>.right:not(.ui) {
+    display: table-cell;
+    padding-left: 1.5%;
+    min-width: 25%;
 }

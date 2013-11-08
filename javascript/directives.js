@@ -17,9 +17,20 @@ define(['app','semantic'],function(app){
         }}
     });
 
+    app.directive('modal', function () {
+        var modal = function ($scope, $element, $attrs, $ctrl) {
+            $scope.close = function(){
+                $scope.showCreateProjectModal = false;
+            }
+        }
+
+        return {compile: function () {
+            return modal
+        }}
+    });
+
     app.directive('userForm', function () {
         var userForm = function ($scope, $element, $attrs, $ctrl) {
-            console.log($($element))
             $element.form({
                 username: {
                     identifier: 'username',

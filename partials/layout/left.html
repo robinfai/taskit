@@ -1,22 +1,54 @@
-<div id="left-sidebar" class="ui thin vertical sidebar menu active" id="menu" ng-controller="LeftSidebarController">
-    <div class="item">
-        <b>项目</b> <i class="inverted circular red awesome add icon" ng-click="addProject()"></i>
-        <div class="menu">
-            <a class="item" href="#">Contributing</a>
-            <a class="item" href="#">Set-up</a>
+<div ng-controller="LeftSidebarController">
+    <div id="left-sidebar" class="ui thin vertical sidebar menu active" id="menu">
+        <div class="item">
+            <b>项目</b> <i class="inverted circular red awesome add icon" ng-click="openCreateProjectModal()"></i>
+
+            <div class="menu">
+                <span class="item item-animation" ng-repeat="item in items" >{{item.title}}</span>
+            </div>
+        </div>
+        <div class="item">
+            <b>任务</b>
+
+            <div class="menu">
+
+                <a class="item" href="" ng-click="template.url = 'partials/task/all.html'">所有任务</a>
+
+                <a class="item" href="" ng-click="template.url = 'partials/task/todo.html'">我的待办</a>
+
+                <a class="item" href="#" ng-click="link()">我的已办</a>
+
+            </div>
         </div>
     </div>
-    <div class="item">
-        <b>任务</b>
+    <div class="ui dimmer page visible active" ng-show="showCreateProjectModal">
+        <div class="ui add-project small modal visible active" modal>
+            <i class="close icon" ng-click="close()"></i>
 
-        <div class="menu">
-
-            <a class="item" href="" ng-click="template.url = 'partials/task/all.html'">所有任务</a>
-
-            <a class="item" href="" ng-click="template.url = 'partials/task/todo.html'">我的待办</a>
-
-            <a class="item" href="#" ng-click="link()">我的已办</a>
-
+            <div class="header">
+                添加项目
+            </div>
+                <div class="ui form segment">
+                    <div class="field">
+                        <label>项目名</label>
+                        <div class="ui left labeled icon input">
+                            <input type="text" placeholder="项目名" ng-model="projectTitle">
+                            <i class="folder icon"></i>
+                        </div>
+                    </div>
+                    <div class="ui error message">
+                        <div class="header">We noticed some issues</div>
+                    </div>
+                </div>
+            <div class="actions">
+                <div class="ui black button" ng-click="close()">
+                    取消
+                </div>
+                <div class="ui positive right labeled icon button" ng-click="createProject()">
+                    添加
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
         </div>
     </div>
 </div>
