@@ -98,6 +98,10 @@ body {
 .task-list{
     height: 100%;
 }
+.task-list .ui.vertical.menu .header.item i.icon{
+    margin-top: -0.5em;
+    font-size: 0.5em;
+}
 .task{
     height: 100%;
 }

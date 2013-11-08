@@ -5,13 +5,12 @@ define([], function () {
     return ['$scope', '$http', '$location', function ($scope, $http, $location) {
         // You can access the scope of the controller from here
         $scope.template = {url:"partials/task/all.html"};
-        $scope.$on('AppAddProject', function () {
-
+        $scope.createTask = function () {
             $scope.items.unshift({
                 title:'测试任务列表'+$scope.items.length,
                 content:'How does one go about reading answers to questions in a FAQ'
             })
-        });
+        };
         $scope.items = [
             {
                 title:'测试任务列表',

@@ -15,9 +15,9 @@
 
 @-webkit-keyframes enter {
     from {
-        -webkit-transform: rotate(-20deg) rotateX(120deg) rotate(30deg);
+        -webkit-transform: rotate(30deg) rotateX(90deg) rotate(-40deg);
         opacity: 0;
-        top: -10%;
+        height: 0;
         left: 0;
         padding-top: 0;
         padding-bottom: 0;
