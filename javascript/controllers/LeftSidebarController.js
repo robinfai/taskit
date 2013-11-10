@@ -7,6 +7,12 @@ define([], function () {
         $scope.openCreateProjectModal = function () {
             //$scope.$emit('addProject');
             $scope.showCreateProjectModal = true;
+            $('.add-project')
+                .modal('setting',{duration:0})
+                .modal('show');
+            $('.ui.checkbox')
+                .checkbox()
+            ;
         }
 
         $scope.createProject = function(){
