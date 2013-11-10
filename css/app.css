@@ -10,6 +10,12 @@ body {
     font-size: 15px;
     color: #555555;
 }
+body.ui.dimmable{
+    position: static;
+}
+body.ui.dimmable.dimmed{
+    position: static;
+}
 .view-container {
     display: block;
     width: 100%;
