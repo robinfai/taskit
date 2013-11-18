@@ -7,13 +7,20 @@
  */
 define(['app','semantic'],function(app){
 
-    app.directive('userTab', function () {
-        var userTab = function ($scope, $element, $attrs, $ctrl) {
-            $($element).find('.item').tab();
+    app.directive('shape', function () {
+        var shape = function ($scope, $element, $attrs, $ctrl) {
+            $($element).find('.shape').shape();
+            $($element).find('a[shape-click]').click(function(){
+                if(!$(this).hasClass('active')){
+                    $(this).parent().find('a').removeClass('active');
+                    $(this).addClass('active');
+                    $($element).find('.shape').shape('flip '+$(this).attr('shape-click'));
+                }
+            })
         }
 
         return {compile: function () {
-            return userTab
+            return shape
         }}
     });
 

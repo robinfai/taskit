@@ -1,14 +1,23 @@
 <div class="user-form-container" ng-controller="RegisterController">
-    <div class="user-form">
-        <div class="ui pointing secondary form menu" id="user-form-tab" user-tab>
-            <a class="active blue item" data-tab="login">Login</a>
-            <a class="green item" data-tab="register">Register</a>
+    <div class="user-form" shape>
+        <div class="ui pointing secondary form menu" id="user-form-tab">
+            <a class="active blue item" shape-click="right">Login</a>
+            <a class="green item" shape-click="left">Register</a>
         </div>
-        <div class="ui active tab segment" data-tab="login">
-            <div ng-include="loginTemplate"></div>
+        <div class="ui shape user-form">
+            <div class="sides">
+                <div class="active side login">
+                    <div class="ui segment" data-tab="login">
+                        <div ng-include="loginTemplate"></div>
+                    </div>
+                </div>
+                <div class="side register">
+                    <div class="ui segment" data-tab="register">
+                        <div ng-include="registerTemplate"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="ui tab segment" data-tab="register">
-            <div ng-include="registerTemplate"></div>
-        </div>
+        
     </div>
 </div>
