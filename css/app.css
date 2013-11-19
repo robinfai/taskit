@@ -82,9 +82,9 @@ body.ui.dimmable.dimmed{
 
 
 #mainContainer {
-    margin-left: 199px;
-    margin-top: 43px;
-    overflow: hidden;
+    margin-left: 205px;
+    margin-top: 50px;
+    overflow: auto;
     height: 100%;
 }
 
@@ -99,9 +99,7 @@ body.ui.dimmable.dimmed{
     width:450px;
     margin:5% auto 0;
 }
-.user-form .login.side{
-    width:450px;
-}
+.user-form .login.side,
 .user-form .register.side{
     width:450px;
 }
@@ -116,6 +114,9 @@ body.ui.dimmable.dimmed{
 }
 .task{
     height: 100%;
+}
+.task.ui.grid{
+    padding: 1px 10px;
 }
 .task .row{
     height: 100%;
