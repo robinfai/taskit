@@ -2,12 +2,22 @@
     <div class="ui grid task" style="width:{{width}}px;">
         <div class="top aligned row">
             <div class="column item-animation" ng-repeat="board in boards" style="width:{{itemWidth}}px">
-                <div class="ui vertical fluid menu piled segment">
+                <div class="ui vertical fluid menu piled segment board">
                     <div class="header item">
                         {{board.name}}
                     </div>
                     <div class="item item-animation" ng-repeat="item in board.items">
                         {{item.content}}
+                        <div class="ui left pointing dropdown icon" dropdown>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value="label">标签</div>
+                                <div class="item" data-value="member">成员</div>
+                                <div class="item" data-value="date">时间</div>
+                                <div class="item" data-value="subscribe">订阅</div>
+                                <div class="item" data-value="attachment">附件</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="item" ng-show="isShowAddCard[$index]">
                         <textarea id="cardText_{{$index}}" rows="5" ng-model="card[$index]" focus="isShowAddCard[$index]" ></textarea>

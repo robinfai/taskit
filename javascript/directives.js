@@ -23,6 +23,15 @@ define(['app','semantic'],function(app){
             return shape
         }}
     });
+    app.directive('dropdown', function () {
+        var dropdown = function ($scope, $element, $attrs, $ctrl) {
+            $($element).dropdown();
+        }
+
+        return {compile: function () {
+            return dropdown
+        }}
+    });
 
     app.directive('focus', function($timeout, $parse) {
         return {

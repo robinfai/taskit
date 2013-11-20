@@ -121,7 +121,7 @@ body.ui.dimmable.dimmed{
 .task .row{
     height: 100%;
 }
-.task .menu{
+.task .board{
     height: 100%;
 }
 .task textarea,
