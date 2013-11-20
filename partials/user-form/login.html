@@ -1,12 +1,12 @@
 <div class="ui form ng-class: errorClass;" ng-controller="LoginController" id="loginForm" user-form>
     <div class="ui inverted dimmer" ng-class="{true: 'active', false: 'disabled'}[loading]">
-        <div class="ui text loader">Registering you now :)</div>
+        <div class="ui text loader">登录中 :)</div>
     </div>
     <div class="field">
-        <label>Username</label>
+        <label>账户</label>
 
         <div class="ui left labeled icon input">
-            <input name="username" type="text" placeholder="Username" ng-model="user.username">
+            <input name="username" type="text" placeholder="用户名或邮箱" ng-model="user.username">
             <i class="user icon"></i>
 
             <div class="ui corner label">
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="field">
-        <label>Password</label>
+        <label>密码</label>
 
         <div class="ui left labeled icon input">
             <input name="password" type="password" ng-model="user.password">
@@ -29,5 +29,5 @@
     <div class="ui error message">
         <div class="header">{{errorMessage}}</div>
     </div>
-    <div class="ui blue button" ng-click="submit()">Login</div>
+    <div class="ui blue button" ng-click="submit()">登录</div>
 </div>

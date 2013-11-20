@@ -1,9 +1,9 @@
 <div class="ui form ng-class: errorClass;" ng-controller="RegisterController" user-form>
     <div class="field">
-        <label>Username</label>
+        <label>用户名</label>
 
         <div class="ui left labeled icon input">
-            <input name="username" type="text" placeholder="Username" ng-model='user.username'>
+            <input name="username" type="text" placeholder="用户名" ng-model='user.username'>
             <i class="user icon"></i>
 
             <div class="ui corner label">
@@ -12,7 +12,19 @@
         </div>
     </div>
     <div class="field">
-        <label>Password</label>
+        <label>邮箱</label>
+
+        <div class="ui left labeled icon input">
+            <input name="email" type="text" placeholder="邮箱" ng-model='user.email'>
+            <i class="user icon"></i>
+
+            <div class="ui corner label">
+                <i class="icon asterisk"></i>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>密码</label>
 
         <div class="ui left labeled icon input">
             <input name="password" type="password" ng-model='user.password'>
@@ -24,7 +36,7 @@
         </div>
     </div>
     <div class="ui error message">
-        <div class="header">We noticed some issues</div>
+        <div class="header">表单错误</div>
     </div>
-    <div class="ui green button" ng-click="submit()">Register</div>
+    <div class="ui green button" ng-click="submit()">注册</div>
 </div>
