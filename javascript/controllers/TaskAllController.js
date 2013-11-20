@@ -66,7 +66,6 @@ define([], function () {
         $scope.itemWidth = 350;
         $scope.setBoardWidth = function(){
             $scope.width = ($scope.boards.length + 1) * $scope.itemWidth + 20;
-            console.log($scope.width )
         };
         $scope.setBoardWidth();
         $scope.isShowAddCard = {};
@@ -75,7 +74,6 @@ define([], function () {
                 $scope.isShowAddCard[i] = false;
             }
             $scope.isShowAddCard[$index] = true;
-            console.log($scope.isShowAddCard)
         }
         $scope.card = {};
         $scope.addCard = function($index){
@@ -95,6 +93,8 @@ define([], function () {
             $scope.isShowAddBoard = false;
             $scope.setBoardWidth();
         }
+
+        $scope.boardTextFocus = false;
 
         // because this has happened asynchroneusly we've missed
         // Angular's initial call to $apply after the controller has been loaded

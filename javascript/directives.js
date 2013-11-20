@@ -24,16 +24,20 @@ define(['app','semantic'],function(app){
         }}
     });
 
-    app.directive('modal', function () {
-        var modal = function ($scope, $element, $attrs, $ctrl) {
-            $scope.close = function(){
-                $scope.showCreateProjectModal = false;
+    app.directive('focus', function($timeout, $parse) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                scope.$watch(attrs.focus, function(newValue, oldValue) {
+                    if (newValue) { element[0].focus(); }
+                });
+                element.bind("blur", function(e) {
+                    $timeout(function() {
+                        scope.$apply(attrs.focus + "=false");
+                    }, 0);
+                });
             }
         }
-
-        return {compile: function () {
-            return modal
-        }}
     });
 
     app.directive('userForm', function () {

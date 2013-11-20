@@ -10,21 +10,25 @@
                         {{item.content}}
                     </div>
                     <div class="item" ng-show="isShowAddCard[$index]">
-                        <textarea cols="30" rows="10" ng-model="card[$index]"></textarea>
+                        <textarea id="cardText_{{$index}}" rows="5" ng-model="card[$index]" focus="isShowAddCard[$index]" ></textarea>
+                    </div>
+                    <div class="item" ng-show="isShowAddCard[$index]">
                         <div class="small ui secondary button" ng-click="addCard($index)">添加</div>
                     </div>
-                    <div class="item text-right" ng-hide="isShowAddCard[$index]" ng-click="showAddCard($index)">
+                    <label for="cardText_{{$index}}" class="item text-right" ng-hide="isShowAddCard[$index]" ng-click="showAddCard($index)">
                         <i class="icon add"></i>添加卡片...
-                    </div>
+                    </label>
                 </div>
             </div>
             <div class="column" style="width:{{itemWidth}}px">
                 <div class="ui vertical fluid menu">
-                    <div class="header item" ng-hide="isShowAddBoard" ng-click="showAddBoard()">
+                    <label for="boardText" class="header item" ng-hide="isShowAddBoard" ng-click="showAddBoard()">
                         添加看板
+                    </label>
+                    <div class="item" ng-show="isShowAddBoard">
+                        <input type="text" ng-model="board" id="boardText" focus="isShowAddBoard"/>
                     </div>
                     <div class="item" ng-show="isShowAddBoard">
-                        <textarea cols="30" rows="5" ng-model="board"></textarea>
                         <div class="small ui secondary button" ng-click="addBoard()">添加</div>
                     </div>
                 </div>

@@ -124,7 +124,14 @@ body.ui.dimmable.dimmed{
 .task .menu{
     height: 100%;
 }
-
+.task textarea,
+.task #boardText{
+    outline: 0;
+    border:none;
+    width: 100%;
+    resize: none;
+    padding: 0;
+}
 @media only screen and (min-width: 1750px) {
     .ui.modal {
         width:46%;
