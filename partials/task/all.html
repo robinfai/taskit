@@ -8,7 +8,7 @@
                     </div>
                     <div class="item item-animation" ng-repeat="item in board.items">
                         {{item.content}}
-                        <div class="ui left pointing dropdown icon" dropdown>
+                        <div class="ui left pointing dropdown icon card-dropdown" dropdown>
                             <i class="dropdown icon"></i>
                             <div class="menu">
                                 <div class="item" data-value="label">标签</div>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="item" ng-show="isShowAddCard[$index]">
-                        <textarea id="cardText_{{$index}}" rows="5" ng-model="card[$index]" focus="isShowAddCard[$index]" ></textarea>
+                        <textarea id="cardText_{{$index}}" rows="5" ng-model="card[$index]" ></textarea>
                     </div>
                     <div class="item" ng-show="isShowAddCard[$index]">
                         <div class="small ui secondary button" ng-click="addCard($index)">添加</div>
@@ -36,7 +36,7 @@
                         添加看板
                     </label>
                     <div class="item" ng-show="isShowAddBoard">
-                        <input type="text" ng-model="board" id="boardText" focus="isShowAddBoard"/>
+                        <input type="text" ng-model="board" id="boardText" />
                     </div>
                     <div class="item" ng-show="isShowAddBoard">
                         <div class="small ui secondary button" ng-click="addBoard()">添加</div>

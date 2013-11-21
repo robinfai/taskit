@@ -124,6 +124,15 @@ body.ui.dimmable.dimmed{
 .task .board{
     height: 100%;
 }
+
+.task .item .card-dropdown{
+    display: none;
+}
+
+.task .item:hover .card-dropdown{
+    display: inline-block;
+}
+
 .task textarea,
 .task #boardText{
     outline: 0;
