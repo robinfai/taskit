@@ -9,18 +9,43 @@ define(['app','semantic'],function(app){
 
     app.directive('shape', function () {
         var shape = function ($scope, $element, $attrs, $ctrl) {
-            $($element).find('.shape').shape();
-            $($element).find('a[shape-click]').click(function(){
-                if(!$(this).hasClass('active')){
-                    $(this).parent().find('a').removeClass('active');
-                    $(this).addClass('active');
-                    $($element).find('.shape').shape('flip '+$(this).attr('shape-click'));
+            var shapeElement = $element.find('.shape');
+            if($element.attr('duration')){
+                console.log($element.attr('duration'))
+                shapeElement.shape({duration:$element.attr('duration')});
+            }else{
+                shapeElement.shape();
+            }
+
+            $element.find('[shape-click]').click(function(){
+                if($(this).attr('data-value')){
+                    var selector = '.'+$(this).attr('data-value')+'.side';
+                    if(!$($element).find(selector).size()){
+                        selector = '.default.side';
+                    }
+                    shapeElement.shape('set next side', selector);
                 }
+                shapeElement.shape('flip '+$(this).attr('shape-click'));
             })
         }
 
         return {compile: function () {
             return shape
+        }}
+    });
+    app.directive('tabLink', function () {
+        var tabLink = function ($scope, $element, $attrs, $ctrl) {
+            $element.find('a').click(function(){
+                if(!$(this).hasClass('active')){
+                    $element.find('a').removeClass('active');
+                    $(this).addClass('active');
+                }
+                return true;
+            })
+        }
+
+        return {compile: function () {
+            return tabLink
         }}
     });
     app.directive('dropdown', function () {

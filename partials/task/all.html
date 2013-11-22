@@ -6,16 +6,90 @@
                     <div class="header item">
                         {{board.name}}
                     </div>
-                    <div class="item item-animation" ng-repeat="item in board.items">
+                    <div class="item item-animation" ng-repeat="item in board.items" ng-controller="CardController">
+                        <div class="colors">
+                            <span class="color {{color}}" ng-repeat="color in colors">
+                            </span>
+                        </div>
                         {{item.content}}
-                        <div class="ui left pointing dropdown icon card-dropdown" dropdown>
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <div class="item" data-value="label">标签</div>
-                                <div class="item" data-value="member">成员</div>
-                                <div class="item" data-value="date">时间</div>
-                                <div class="item" data-value="subscribe">订阅</div>
-                                <div class="item" data-value="attachment">附件</div>
+                        <div class="ui left pointing dropdown icon card-dropdown " dropdown>
+                            <i class="add sign box icon"  ></i>
+                            <div class="menu" shape duration="200ms">
+                                <div class="ui shape shape-menu">
+                                    <div class="sides">
+                                        <div class="active side default">
+                                            <div class="item" shape-click="up" data-value="label">标签</div>
+                                            <div class="item" shape-click="up" data-value="member">成员</div>
+                                            <div class="item" shape-click="up" data-value="date">时间</div>
+                                            <div class="item" shape-click="up" data-value="subscribe">订阅</div>
+                                            <div class="item" shape-click="up" data-value="attachment">附件</div>
+                                        </div>
+
+                                        <div class="side label">
+                                            <div class="item header" shape-click="down" data-value="default">
+                                                <i class="double angle left icon"></i>修改标签
+                                            </div>
+                                            <div class="item" ng-click="changeColor('blue')">
+                                                <span class="card-label blue">
+                                                    blue
+                                                    <i class="checkmark icon" ng-show="activeColors.blue"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item" ng-click="changeColor('orange')">
+                                                <span class="card-label orange">
+                                                    orange
+                                                    <i class="checkmark icon" ng-show="activeColors.orange"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item" ng-click="changeColor('green')">
+                                                <span class="card-label green">
+                                                    green
+                                                    <i class="checkmark icon" ng-show="activeColors.green"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item" ng-click="changeColor('red')">
+                                                <span class="card-label red">
+                                                    red
+                                                    <i class="checkmark icon" ng-show="activeColors.red"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item" ng-click="changeColor('purple')">
+                                                <span class="card-label purple">
+                                                    purple
+                                                    <i class="checkmark icon" ng-show="activeColors.purple"></i>
+                                                </span>
+                                            </div>
+                                            <div class="item" ng-click="changeColor('teal')">
+                                                <span class="card-label teal">
+                                                    teal
+                                                    <i class="checkmark icon" ng-show="activeColors.teal"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="side member">
+                                            <div class="item header" shape-click="down" data-value="default">
+                                                <i class="double angle left icon"></i>管理成员
+                                            </div>
+                                            <div class="item" shape-click="right" data-value="date">时间</div>
+                                            <div class="item" shape-click="right" data-value="subscribe">订阅</div>
+                                            <div class="item" shape-click="right" data-value="attachment">附件</div>
+                                        </div>
+                                        <div class="side date">
+                                            <div class="item header" shape-click="down" data-value="default">
+                                                <i class="double angle left icon"></i>设置时间
+                                            </div>
+                                            <div class="item" shape-click="right" data-value="subscribe">订阅</div>
+                                            <div class="item" shape-click="right" data-value="attachment">附件</div>
+                                        </div>
+                                        <div class="side subscribe">
+                                            <div class="item header" shape-click="down" data-value="default">
+                                                <i class="double angle left icon"></i>订阅
+                                            </div>
+                                            <div class="item" shape-click="right" data-value="attachment">附件</div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
