@@ -75,7 +75,7 @@
                                                     <input type="text" placeholder="搜索成员" ng-model="searchMember"/>
                                                 </class>
                                                 <ul class="member-list">
-                                                    <li class="item item-animation" ng-repeat="member in members | filter:searchMember">
+                                                    <li class="item item-animation" ng-repeat="member in members | filter:searchMember" ng-click="selectMember(member)">
                                                         <div class="avatar">
                                                             {{member | substring:0:2 | uppercase}}
                                                         </div>
@@ -100,6 +100,12 @@
                                     </div>
 
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="members">
+                            <div class="avatar item-animation" ng-repeat="member in selectedMember">
+                                {{member | substring:0:2 | uppercase}}
                             </div>
                         </div>
                     </div>

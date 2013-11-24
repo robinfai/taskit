@@ -183,7 +183,7 @@ body.ui.dimmable.dimmed {
 .ui.dropdown .menu .member-list .item{
     padding: 5px 0 !important;
 }
-.member-list .avatar{
+.avatar{
     display: inline-block;
     height: 32px;
     background: #d6d6d6;
@@ -194,6 +194,7 @@ body.ui.dimmable.dimmed {
     text-align: center;
     font-size: 12px;
     font-weight: bold;
+    margin: 5px 5px 0 0;
 
 }
 
