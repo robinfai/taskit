@@ -46,3 +46,43 @@
         top: 0px;
     }
 }
+.item-animation.ng-leave {
+    -webkit-animation: leave 600ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave 600ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    display: block;
+    position: relative;
+}
+
+@-webkit-keyframes leave {
+    from {
+        -webkit-transform: rotate(0);
+        opacity: 1;
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        -webkit-transform: rotate(30deg) rotateX(90deg) rotate(-40deg);
+        opacity: 0;
+        height: 0;
+        width: 0;
+        left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+@keyframes leave {
+    from {
+        -webkit-transform: rotate(0);
+        opacity: 1;
+        left: 0px;
+        top: 0px;
+    }
+    to {
+        -webkit-transform: rotate(-20deg) rotateX(120deg) rotate(30deg);
+        opacity: 0;
+        top: -50px;
+        left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

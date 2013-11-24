@@ -27,6 +27,8 @@ define([], function () {
 
         }
 
+        $scope.members = ['robinfai','taskit','jlds','ssdw','why','uudxvh','rrtchs','dsayd'];
+
         $scope.$on("hideAllItemOperate",function(){
             $scope.isShowItemOperate = false;
         })

@@ -70,9 +70,19 @@
                                             <div class="item header" shape-click="down" data-value="default">
                                                 <i class="double angle left icon"></i>管理成员
                                             </div>
-                                            <div class="item" shape-click="right" data-value="date">时间</div>
-                                            <div class="item" shape-click="right" data-value="subscribe">订阅</div>
-                                            <div class="item" shape-click="right" data-value="attachment">附件</div>
+                                            <div class="item content">
+                                                <class class="ui input search-member">
+                                                    <input type="text" placeholder="搜索成员" ng-model="searchMember"/>
+                                                </class>
+                                                <ul class="member-list">
+                                                    <li class="item item-animation" ng-repeat="member in members | filter:searchMember">
+                                                        <div class="avatar">
+                                                            {{member | substring:0:2 | uppercase}}
+                                                        </div>
+                                                        {{member}}
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="side date">
                                             <div class="item header" shape-click="down" data-value="default">

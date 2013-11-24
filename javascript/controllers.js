@@ -5,7 +5,7 @@
  * Time: 上午8:25
  * To change this template use File | Settings | File Templates.
  */
-define(['app','semantic','directives'], function(app) {
+define(['app','semantic','directives','filters'], function(app) {
     'use strict';
 
     app.controller('AppController',['$scope','$injector',
