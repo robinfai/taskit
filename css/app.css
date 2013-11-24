@@ -138,7 +138,8 @@ body.ui.dimmable.dimmed {
 .task .item .card-dropdown {
     display: none;
 }
-.task .item .card-dropdown.active{
+.task .item .card-dropdown.active,
+.task .item .card-dropdown.visible{
     display: inline-block;
 }
 .task .item:hover .card-dropdown {
