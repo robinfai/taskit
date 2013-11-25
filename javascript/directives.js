@@ -31,10 +31,9 @@ define(['app','semantic','lib/moment','lib/daterangepicker'],function(app){
         var shape = function ($scope, $element, $attrs, $ctrl) {
             var shapeElement = $element.find('.shape');
             if($element.attr('duration')){
-                console.log($element.attr('duration'))
-                shapeElement.shape({duration:$element.attr('duration')});
+                shapeElement.shape('set default side','.default.side').shape({duration:$element.attr('duration')});
             }else{
-                shapeElement.shape();
+                shapeElement.shape('set default side','.default.side').shape();
             }
 
             $element.find('[shape-click]').click(function(){
@@ -70,7 +69,16 @@ define(['app','semantic','lib/moment','lib/daterangepicker'],function(app){
     });
     app.directive('dropdown', function () {
         var dropdown = function ($scope, $element, $attrs, $ctrl) {
-            $($element).dropdown();
+            $($element).dropdown({
+                onShow:function(){
+                    if(!$(this).find('.default.side').hasClass('active')){
+                        $(this).find('.shape')
+                            .shape('set next side', '.default.side')
+                            .shape('flip up')
+                        ;
+                    }
+                }
+            });
         }
 
         return {compile: function () {
