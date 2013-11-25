@@ -147,11 +147,11 @@ body.ui.dimmable.dimmed {
 }
 
 .task .item .card-dropdown .menu {
-    width: 200px;
+    width: 230px;
 }
 
 .task .item .card-dropdown .menu .sides {
-    width: 200px;
+    width: 230px;
 }
 
 .task .item .card-dropdown .menu .sides .item.header {
@@ -323,4 +323,55 @@ body.ui.dimmable.dimmed {
     display: table-cell;
     padding-left: 1.5%;
     min-width: 25%;
+}
+
+
+
+/* daterangepicker */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+.daterangepicker.dropdown-menu{
+    width: 545px;
+}
+.daterangepicker.opensright .ranges{
+    float: none;
+    clear: both;
+    width: 100%;
+    padding: 5px 0 0 8px;
+}
+.daterangepicker .ranges label{
+    display: inline-block;
+    width:auto;
+    margin-right: 5px;
+}
+/*.ui.vertical.menu .item > .input input*/
+.ui.vertical.menu .item > .input input.input-mini{
+    display: inline-block;
+    margin: 0;
+    width:90px;
+}
+.daterangepicker_end_input{
+    margin-right: 10px;
+}
+.daterangepicker_start_input,
+.daterangepicker_end_input{
+    margin-top:1px;
 }
