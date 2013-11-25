@@ -9,18 +9,12 @@ define(['app','semantic','lib/moment','lib/daterangepicker'],function(app){
 
     app.directive('daterangepicker',function(){
         var daterangepicker = function($scope,$element,$attrs,$ctrl){
-            $element.daterangepicker(
-                {
+            $element.daterangepicker({
                     format: 'YYYY-MM-DD',
                     parentEl:$element.parent(),
                     applyClass:'ui secondary button tiny',
                     cancelClass:'ui button tiny'
-                },
-                function(start, end) {
-                    console.log(start,end)
-                    return false;
-                }
-            );
+                });
         }
         return {compile: function () {
             return daterangepicker

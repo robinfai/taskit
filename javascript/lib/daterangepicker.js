@@ -544,6 +544,7 @@
             this.leftCalendar.month.month(this.startDate.month()).year(this.startDate.year());
             this.rightCalendar.month.month(this.endDate.month()).year(this.endDate.year());
             this.updateCalendars();
+            return false;
         },
 
         clickApply: function (e) {
