@@ -11,10 +11,42 @@
                             <span class="color {{color}}" ng-repeat="color in colors">
                             </span>
                         </div>
-                        <div class="content">
-                            {{item.content}}
+                        <div class="title" card-modal>
+                            {{item.title}}
+                        </div>
+                        <div class="content" ng-show="item.content" card-modal>
+                            <i class="text file icon"></i>
                         </div>
                         <div class="date">{{item.date}}</div>
+                        <div class="ui dimmer page ">
+                            <div class="ui add-card small modal " >
+                                <i class="close icon"></i>
+                                <div class="header">
+                                    {{item.title}}
+                                </div>
+                                <div class="ui form segment">
+                                    <div class="field">
+                                        <label>项目名</label>
+                                        <div class="ui left labeled icon input">
+                                            <input type="text" placeholder="项目名" ng-model="projectTitle">
+                                            <i class="folder icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="ui error message">
+                                        <div class="header">We noticed some issues</div>
+                                    </div>
+                                </div>
+                                <div class="actions">
+                                    <div class="ui black button" ng-click="close()">
+                                        取消
+                                    </div>
+                                    <div class="ui positive right labeled icon button" ng-click="createProject()">
+                                        添加
+                                        <i class="checkmark icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="ui left pointing dropdown icon card-dropdown " dropdown>
                             <i class="add sign box icon"></i>
                             <div class="menu" shape duration="200ms">

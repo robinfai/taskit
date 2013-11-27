@@ -7,6 +7,19 @@
  */
 define(['app','semantic','lib/moment','dateRangePicker'],function(app){
 
+    app.directive('cardModal',function(){
+        var cardModal = function($scope,$element,$attrs,$ctrl){
+            $element.on('click',function(){
+                $(this).parent().find('.add-card').modal({context:$(this).parent()}).modal('show');
+            })
+
+        }
+
+        return {compile: function () {
+            return cardModal
+        }}
+    })
+
     app.directive('daterangepicker',function(){
         var daterangepicker = function($scope,$element,$attrs,$ctrl){
             $element.daterangepicker({

@@ -134,8 +134,12 @@ body.ui.dimmable.dimmed {
 .task .board {
     height: 100%;
 }
+.task .item .title,
 .task .item .content{
     cursor: pointer;
+}
+.task .item .content{
+    margin-top:10px;
 }
 .task .item .date{
     margin-top: 10px;
