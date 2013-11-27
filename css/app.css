@@ -134,9 +134,20 @@ body.ui.dimmable.dimmed {
 .task .board {
     height: 100%;
 }
-
+.task .item .content{
+    cursor: pointer;
+}
+.task .item .date{
+    margin-top: 10px;
+    font-size: 14px;
+    color: #999;
+    text-align: right;
+}
 .task .item .card-dropdown {
     display: none;
+    position: absolute;
+    right: 10px;
+    top: 12px;
 }
 .task .item .card-dropdown.active,
 .task .item .card-dropdown.visible{

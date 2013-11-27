@@ -9,7 +9,8 @@ require.config({
     paths: {
         angular:'angular',
         angularRoute: 'angular/angular-route',
-        angularAnimate: 'angular/angular-animate'
+        angularAnimate: 'angular/angular-animate',
+        dateRangePicker:'lib/daterangepicker'
         //jquery:'jquery'
         //angularMocks: '../../bower_components/angular-mocks/angular-mocks',
         //text: '../../bower_components/requirejs-text/text'
@@ -23,6 +24,7 @@ require.config({
         'angularRoute': ['angular'],
         'angularAnimate': ['angular'],
         'semantic':['jquery'],
+        'dateRangePicker':['jquery'],
         'jquery':{'exports':'$'}
     },
     priority: [

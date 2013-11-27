@@ -5,7 +5,7 @@
  * Time: 上午8:47
  * To change this template use File | Settings | File Templates.
  */
-define(['app','semantic','lib/moment','lib/daterangepicker'],function(app){
+define(['app','semantic','lib/moment','dateRangePicker'],function(app){
 
     app.directive('daterangepicker',function(){
         var daterangepicker = function($scope,$element,$attrs,$ctrl){
@@ -13,8 +13,12 @@ define(['app','semantic','lib/moment','lib/daterangepicker'],function(app){
                     format: 'YYYY-MM-DD',
                     parentEl:$element.parent(),
                     applyClass:'ui secondary button tiny',
-                    cancelClass:'ui button tiny'
+                    cancelClass:'ui button tiny',
                 });
+            $element.on('hidden',function(){
+                $scope.$parent.item.date = $(this).val();
+                $scope.$parent.$apply();
+            });
         }
         return {compile: function () {
             return daterangepicker

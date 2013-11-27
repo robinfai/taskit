@@ -11,7 +11,10 @@
                             <span class="color {{color}}" ng-repeat="color in colors">
                             </span>
                         </div>
-                        {{item.content}}
+                        <div class="content">
+                            {{item.content}}
+                        </div>
+                        <div class="date">{{item.date}}</div>
                         <div class="ui left pointing dropdown icon card-dropdown " dropdown>
                             <i class="add sign box icon"></i>
                             <div class="menu" shape duration="200ms">
@@ -90,7 +93,7 @@
                                             </div>
                                             <div class="item">
                                                 <div class="ui input">
-                                                    <input type="text" model="date" daterangepicker/>
+                                                    <input type="text" ng-model="date" daterangepicker/>
                                                 </div>
                                             </div>
                                         </div>
