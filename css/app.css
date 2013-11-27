@@ -140,6 +140,10 @@ body.ui.dimmable.dimmed {
 }
 .task .item .content{
     margin-top:10px;
+    float: left;
+}
+.task .item .members{
+    clear: both;
 }
 .task .item .date{
     margin-top: 10px;
@@ -197,6 +201,9 @@ body.ui.dimmable.dimmed {
 .member-list{}
 .ui.dropdown .menu .member-list .item{
     padding: 5px 0 !important;
+}
+.ui.dropdown .menu .member-list .item .checkmark.icon {
+    margin-top: 12px;
 }
 .avatar{
     display: inline-block;
