@@ -22,18 +22,25 @@
                             <div class="ui add-card small modal " >
                                 <i class="close icon"></i>
                                 <div class="header">
-                                    {{item.title}}
-                                </div>
-                                <div class="ui form segment">
-                                    <div class="field">
-                                        <label>项目名</label>
-                                        <div class="ui left labeled icon input">
-                                            <input type="text" placeholder="项目名" ng-model="projectTitle">
-                                            <i class="folder icon"></i>
+                                    <div class="ui dropdown card-title" dropdown>
+                                        {{item.title}}
+                                        <div class="menu">
+                                            <div class="item">
+                                                <div class="menu"></div>
+                                                <input type="text" ng-model="item.title"/>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="ui error message">
-                                        <div class="header">We noticed some issues</div>
+                                </div>
+                                <div class="content">
+                                    <div class="ui dropdown card-content" dropdown>
+                                        <pre>{{item.content}}</pre>
+                                        <div class="menu">
+                                            <div class="item">
+                                                <div class="menu"></div>
+                                                <textarea type="text" ng-model="item.content"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="actions">
@@ -47,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ui left pointing dropdown icon card-dropdown " dropdown>
+                        <div class="ui left pointing dropdown icon card-dropdown " card-dropdown>
                             <i class="add sign box icon"></i>
                             <div class="menu" shape duration="200ms">
                                 <div class="ui shape shape-menu">

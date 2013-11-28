@@ -31,35 +31,7 @@ define([], function () {
                     {
                         title:'测试任务列表',
                         content:'How does one go about reading answers to questions in a FAQ'
-                    },
-                    {
-                        title:'测试任务列表',
-                        content:'How does one go about reading answers to questions in a FAQ'
-                    },
-                    {
-                        title:'测试任务列表',
-                        content:'How does one go about reading answers to questions in a FAQ'
-                    },
-                    {
-                        title:'测试任务列表',
-                        content:'How does one go about reading answers to questions in a FAQ'
-                    },
-                    {
-                        title:'测试任务列表',
-                        content:'How does one go about reading answers to questions in a FAQ'
-                    },
-                    {
-                        title:'测试任务列表',
-                        content:'How does one go about reading answers to questions in a FAQ'
-                    },
-                    {
-                        title:'测试任务列表',
-                        content:'How does one go about reading answers to questions in a FAQ'
-                    },
-                    {
-                        title:'测试任务列表',
-                        content:'How does one go about reading answers to questions in a FAQ'
-                    },
+                    }
                 ]
             }
         ];

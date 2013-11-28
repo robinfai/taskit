@@ -78,7 +78,7 @@ define(['app','semantic','lib/moment','dateRangePicker'],function(app){
             return tabLink
         }}
     });
-    app.directive('dropdown', function () {
+    app.directive('cardDropdown', function () {
         var dropdown = function ($scope, $element, $attrs, $ctrl) {
             $($element).dropdown({
                 onShow:function(){
@@ -90,6 +90,15 @@ define(['app','semantic','lib/moment','dateRangePicker'],function(app){
                     }
                 }
             });
+        }
+
+        return {compile: function () {
+            return dropdown
+        }}
+    });
+    app.directive('dropdown', function () {
+        var dropdown = function ($scope, $element, $attrs, $ctrl) {
+            $($element).dropdown();
         }
 
         return {compile: function () {

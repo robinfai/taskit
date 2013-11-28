@@ -151,6 +151,46 @@ body.ui.dimmable.dimmed {
     color: #999;
     text-align: right;
 }
+.task .item .modal .header{
+    cursor: pointer;
+}
+.task .item .modal .card-title,
+.task .item .modal .card-content{
+    width:100%
+}
+.task .item .modal .card-title .menu,
+.task .item .modal .card-content .menu{
+    top:0;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    background: transparent;
+}
+.task .item .modal .card-title .menu .item,
+.task .item .modal .card-content .menu .item{
+    padding: 0 !important;
+}
+.task .item .modal .card-title .menu .item input,
+.task .item .modal .card-content .menu .item textarea{
+    width: 100%;
+    padding: 0;
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+.task .item .modal .card-title .menu .item input{
+    font-size: 26px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.75);
+}
+.task .item .modal .card-content .menu .item textarea{
+    resize: none;
+    height: 64px;
+}
+.task .item .modal .content{
+    float:none;
+    margin-top:0;
+}
+
 .task .item .card-dropdown {
     display: none;
     position: absolute;
