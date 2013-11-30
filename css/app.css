@@ -51,12 +51,14 @@ body.ui.dimmable.dimmed {
     margin: 0 0 0 5px;
 }
 
-#left-sidebar {
+#right-sidebar {
     top: 43px;
+    left:auto;
+    right:0;
     overflow: hidden;
 }
 
-#left-sidebar i.icon {
+#right-sidebar i.icon {
     margin-top: -0.5em;
     font-size: 0.5em;
 }
@@ -67,8 +69,8 @@ body.ui.dimmable.dimmed {
     margin-top: -190px;
 }
 
-.ng-enter #left-sidebar,
-.ng-leave #left-sidebar {
+.ng-enter #right-sidebar,
+.ng-leave #right-sidebar {
     position: absolute;
 }
 
@@ -86,8 +88,7 @@ body.ui.dimmable.dimmed {
 }
 
 #mainContainer {
-    margin-left: 205px;
-    margin-top: 50px;
+    margin: 95px 205px 0 10px;
     overflow: auto;
     height: 100%;
 }
@@ -133,6 +134,9 @@ body.ui.dimmable.dimmed {
 
 .task .board {
     height: 100%;
+}
+.board-info{
+    top:43px;left:0;
 }
 .task .item .title,
 .task .item .content{
