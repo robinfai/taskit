@@ -11,6 +11,7 @@ define(['app','semantic','lib/moment','dateRangePicker'],function(app){
         var cardModal = function($scope,$element,$attrs,$ctrl){
             $element.on('click',function(){
                 $(this).parent().find('.add-card').modal({context:$(this).parent()}).modal('show');
+                $(this).parent().find('.card-'+$(this).attr('card-modal')).dropdown('show');
             })
 
         }

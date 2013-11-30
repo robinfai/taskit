@@ -158,6 +158,12 @@ body.ui.dimmable.dimmed {
 .task .item .modal .card-content{
     width:100%
 }
+.task .item .modal .card-content.dropdown.active{
+    height: 156px;
+}
+.task .item .modal .card-content.dropdown.active pre{
+    display: none;
+}
 .task .item .modal .card-title .menu,
 .task .item .modal .card-content .menu{
     top:0;
@@ -184,7 +190,7 @@ body.ui.dimmable.dimmed {
 }
 .task .item .modal .card-content .menu .item textarea{
     resize: none;
-    height: 64px;
+    height: 154px;
 }
 .task .item .modal .content{
     float:none;
