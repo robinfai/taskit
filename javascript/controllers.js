@@ -54,10 +54,10 @@ define(['app','semantic','directives','filters'], function(app) {
                 $injector.invoke(CardController, this, {'$scope': $scope});
             });
         }]);
-    app.controller('LeftSidebarController',['$scope', '$injector',
-        function LeftSidebarController($scope,$injector) {
-            require(['controllers/LeftSidebarController'], function(LeftSidebarController){
-                $injector.invoke(LeftSidebarController, this, {'$scope': $scope});
+    app.controller('RightSidebarController',['$scope', '$injector',
+        function RightSidebarController($scope,$injector) {
+            require(['controllers/RightSidebarController'], function(RightSidebarController){
+                $injector.invoke(RightSidebarController, this, {'$scope': $scope});
             });
         }]);
 
