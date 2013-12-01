@@ -139,7 +139,7 @@ body.ui.dimmable.dimmed {
     top:43px;left:0;
 }
 .task .item .title,
-.task .item .content{
+.task .item .card-content{
     cursor: pointer;
 }
 .task .item .content{
@@ -159,7 +159,8 @@ body.ui.dimmable.dimmed {
     cursor: pointer;
 }
 .task .item .modal .card-title,
-.task .item .modal .card-content{
+.task .item .modal .card-content,
+.task .item .modal .add-comment{
     width:100%
 }
 .task .item .modal .card-content.dropdown.active{
@@ -169,19 +170,23 @@ body.ui.dimmable.dimmed {
     display: none;
 }
 .task .item .modal .card-title .menu,
-.task .item .modal .card-content .menu{
+.task .item .modal .card-content .menu,
+.task .item .modal .add-comment .menu{
     top:0;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
     background: transparent;
 }
 .task .item .modal .card-title .menu .item,
-.task .item .modal .card-content .menu .item{
+.task .item .modal .card-content .menu .item,
+.task .item .modal .add-comment .menu .item{
     padding: 0 !important;
 }
 .task .item .modal .card-title .menu .item input,
-.task .item .modal .card-content .menu .item textarea{
+.task .item .modal .card-content .menu .item textarea,
+.task .item .modal .add-comment .menu .item textarea{
     width: 100%;
     padding: 0;
+    margin: 0;
     outline: 0;
     border: 1px solid rgba(0, 0, 0, 0.15);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;

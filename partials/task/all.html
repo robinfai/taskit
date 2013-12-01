@@ -54,11 +54,43 @@
                                 </div>
                                 <div class="content">
                                     <div class="ui dropdown card-content" dropdown>
-                                        <pre>{{item.content}}</pre>
+                                        {{item.content}}
                                         <div class="menu">
                                             <div class="item">
                                                 <div class="menu"></div>
                                                 <textarea type="text" ng-model="item.content"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui divided list">
+                                        <div class="item">
+                                            <div class="avatar">
+                                                {{avatar}}
+                                            </div>
+                                            <div class="content">
+                                                <div class="ui dropdown add-comment" dropdown>
+                                                    <pre>{{comment?comment:'填写评论'}}</pre>
+                                                    <div class="menu">
+                                                        <div class="item">
+                                                            <div class="menu"></div>
+                                                            <textarea type="text" ng-model="comment" placeholder="填写评论"></textarea>
+                                                            <div class="comment-actions">
+                                                                <i class="remove icon cancel-comment big" ng-click="cancelComment()"></i>
+                                                                <div class="ui teal button" ng-click="addComment()">
+                                                                    添加
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item" ng-repeat="item in comments">
+                                            <div class="avatar">
+                                                {{item.user.username | substring:0:2 | uppercase}}
+                                            </div>
+                                            <div class="content">
+                                                {{item.comment }}
                                             </div>
                                         </div>
                                     </div>

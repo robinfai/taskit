@@ -70,6 +70,37 @@ define([], function () {
             ;
         }
 
+        $scope.avatar='RO';
+
+        $scope.comments = [{
+            user:{
+                username:'RobinFai'
+            },
+            create_time:'2013-11-30',
+            comment:'这只是一条评论'
+        },{
+            user:{
+                username:'RobinFai'
+            },
+            create_time:'2013-11-30 12:31',
+            comment:'这是另外一条评论'
+        },
+        ];
+
+        $scope.cancelComment=function(){
+            $scope.comment = '';
+        }
+        $scope.addComment=function(){
+            $scope.comments.push({
+                user:{
+                    username:'RobinFai'
+                },
+                create_time:(new Date()).toLocaleDateString(),
+                comment:$scope.comment
+            });
+            $scope.comment = '';
+        }
+
         // because this has happened asynchroneusly we've missed
         // Angular's initial call to $apply after the controller has been loaded
         // hence we need to explicityly call it at the end of our Controller constructor
