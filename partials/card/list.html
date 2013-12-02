@@ -1,0 +1,209 @@
+<div class="ui vertical fluid menu piled segment board">
+<div class="header item">
+    {{board.name}}
+</div>
+<div class="item item-animation" ng-repeat="item in board.items" ng-controller="CardController">
+    <div class="colors">
+        <span class="color {{color}}" ng-repeat="color in colors">
+        </span>
+    </div>
+    <div class="title" card-modal="title">
+        {{item.title}}
+    </div>
+    <div class="content" ng-show="item.content" card-modal="content">
+        <i class="text file icon"></i>
+    </div>
+    <div class="date">{{item.date}}</div>
+    <div class="ui dimmer page ">
+        <div class="ui add-card small modal ">
+            <i class="close icon"></i>
+
+            <div class="header">
+                <div class="ui dropdown card-title" dropdown>
+                    {{item.title}}
+                    <div class="menu">
+                        <div class="item">
+                            <div class="menu"></div>
+                            <input type="text" ng-model="item.title"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="ui dropdown card-content" dropdown>
+                    {{item.content}}
+                    <div class="menu">
+                        <div class="item">
+                            <div class="menu"></div>
+                            <textarea type="text" ng-model="item.content"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-comment-list ui divided list">
+                    <div class="item">
+                        <div class="avatar">
+                            {{avatar}}
+                        </div>
+                        <div class="content">
+                            <div class="ui dropdown add-comment" dropdown>
+                                <pre>{{comment?comment:'填写评论'}}</pre>
+                                <div class="menu">
+                                    <div class="item">
+                                        <div class="menu"></div>
+                                        <textarea type="text" ng-model="comment" placeholder="填写评论"></textarea>
+
+                                        <div class="comment-actions">
+                                            <i class="remove icon cancel-comment big" ng-click="cancelComment()"></i>
+
+                                            <div class="ui teal button" ng-click="addComment()">
+                                                添加
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" ng-repeat="item in comments">
+                        <div class="avatar">
+                            {{item.user.username | substring:0:2 | uppercase}}
+                        </div>
+                        <div class="content">
+                            <div class="ui dropdown add-comment" dropdown>
+                                <pre>{{item.comment }}</pre>
+                                <div class="menu">
+                                    <div class="item">
+                                        <div class="menu"></div>
+                                        <textarea type="text" ng-model="item.comment" placeholder="填写评论"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui black button" ng-click="close()">
+                    取消
+                </div>
+                <div class="ui positive right labeled icon button" ng-click="createProject()">
+                    添加
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui left pointing dropdown icon card-dropdown " card-dropdown>
+        <i class="add sign box icon"></i>
+
+        <div class="menu" shape duration="200ms">
+            <div class="ui shape shape-menu">
+                <div class="sides">
+                    <div class="active side default">
+                        <div class="item" shape-click="up" data-value="label">标签</div>
+                        <div class="item" shape-click="up" data-value="member">成员</div>
+                        <div class="item" shape-click="up" data-value="date">时间</div>
+                        <div class="item" ng-click="changeSubscribe()">订阅<i class="checkmark icon"
+                                                                            ng-show="isSubscribe"></i></div>
+                        <div class="item disabled">附件</div>
+                    </div>
+
+                    <div class="side label">
+                        <div class="item header" shape-click="down" data-value="default">
+                            <i class="double angle left icon"></i>修改标签
+                        </div>
+                        <div class="item" ng-click="changeColor('blue')">
+                                                <span class="card-label blue">
+                                                    blue
+                                                    <i class="checkmark icon" ng-show="activeColors.blue"></i>
+                                                </span>
+                        </div>
+                        <div class="item" ng-click="changeColor('orange')">
+                                                <span class="card-label orange">
+                                                    orange
+                                                    <i class="checkmark icon" ng-show="activeColors.orange"></i>
+                                                </span>
+                        </div>
+                        <div class="item" ng-click="changeColor('green')">
+                                                <span class="card-label green">
+                                                    green
+                                                    <i class="checkmark icon" ng-show="activeColors.green"></i>
+                                                </span>
+                        </div>
+                        <div class="item" ng-click="changeColor('red')">
+                                                <span class="card-label red">
+                                                    red
+                                                    <i class="checkmark icon" ng-show="activeColors.red"></i>
+                                                </span>
+                        </div>
+                        <div class="item" ng-click="changeColor('purple')">
+                                                <span class="card-label purple">
+                                                    purple
+                                                    <i class="checkmark icon" ng-show="activeColors.purple"></i>
+                                                </span>
+                        </div>
+                        <div class="item" ng-click="changeColor('teal')">
+                                                <span class="card-label teal">
+                                                    teal
+                                                    <i class="checkmark icon" ng-show="activeColors.teal"></i>
+                                                </span>
+                        </div>
+                    </div>
+                    <div class="side member">
+                        <div class="item header" shape-click="down" data-value="default">
+                            <i class="double angle left icon"></i>管理成员
+                        </div>
+                        <div class="item content">
+                            <class class="ui input search-member">
+                                <input type="text" placeholder="搜索成员" ng-model="searchMember"/>
+                            </class>
+                            <ul class="member-list">
+                                <li class="item item-animation" ng-repeat="member in members | filter:searchMember"
+                                    ng-click="selectMember(member)">
+                                    <div class="avatar">
+                                        {{member | substring:0:2 | uppercase}}
+                                    </div>
+                                    {{member}}
+                                    <i class="checkmark icon" ng-show="selectedMember.indexOf('{{member}}')!=-1"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="side date">
+                        <div class="item header" shape-click="down" data-value="default">
+                            <i class="double angle left icon"></i>设置时间
+                        </div>
+                        <div class="item">
+                            <div class="ui input">
+                                <input type="text" ng-model="date" daterangepicker/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side subscribe">
+                        <div class="item header" shape-click="down" data-value="default">
+                            <i class="double angle left icon"></i>订阅
+                        </div>
+                        <div class="item" shape-click="right" data-value="attachment">附件</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="members">
+        <div class="avatar item-animation" ng-repeat="member in selectedMember">
+            {{member | substring:0:2 | uppercase}}
+        </div>
+    </div>
+</div>
+<div class="item" ng-show="isShowAddCard[$index]">
+    <textarea id="cardText_{{$index}}" rows="5" ng-model="card[$index]"></textarea>
+</div>
+<div class="item" ng-show="isShowAddCard[$index]">
+    <div class="small ui secondary button" ng-click="addCard($index)">添加</div>
+</div>
+<label for="cardText_{{$index}}" class="item text-right" ng-hide="isShowAddCard[$index]" ng-click="showAddCard($index)">
+    <i class="icon add"></i>添加卡片...
+</label>
+</div>

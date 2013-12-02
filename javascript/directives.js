@@ -10,7 +10,14 @@ define(['app','semantic','lib/moment','dateRangePicker'],function(app){
     app.directive('cardModal',function(){
         var cardModal = function($scope,$element,$attrs,$ctrl){
             $element.on('click',function(){
-                $(this).parent().find('.add-card').modal({context:$(this).parent()}).modal('show');
+                $(this).parent().find('.add-card')
+                    .modal({
+                        context:$(this).parent(),
+                        onHide:function(){
+                            $(this).find('[dropdown]').dropdown('hide')
+                        }
+                    })
+                    .modal('show');
                 $(this).parent().find('.card-'+$(this).attr('card-modal')).dropdown('show');
             })
 
