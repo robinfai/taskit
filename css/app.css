@@ -221,6 +221,7 @@ body.ui.dimmable.dimmed {
 }
 .task .item .modal .content .card-comment-list .item .add-comment.active{
     height:160px;
+    padding: 1px;
 }
 .task .item .modal .content .card-comment-list .item .add-comment.active textarea{
     height: 110px;
