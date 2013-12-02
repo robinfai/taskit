@@ -205,7 +205,29 @@ body.ui.dimmable.dimmed {
     float:none;
     margin-top:0;
 }
-
+.task .item .modal .content .card-comment-list .item{
+    min-height: 60px;
+    padding:0.5em;
+}
+.task .item .modal .content .card-comment-list .item .content{
+    display: block;
+    padding: 10px 0 0 45px;
+}
+.task .item .modal .content .card-comment-list .item .avatar{
+    position: absolute;
+}
+.task .item .modal .content .card-comment-list .item .content pre{
+    margin:0;
+}
+.task .item .modal .content .card-comment-list .item .add-comment.active{
+    height:160px;
+}
+.task .item .modal .content .card-comment-list .item .add-comment.active textarea{
+    height: 110px;
+}
+.task .item .modal .content .card-comment-list .item .add-comment.active .comment-actions{
+    text-align: right;
+}
 .task .item .card-dropdown {
     display: none;
     position: absolute;
