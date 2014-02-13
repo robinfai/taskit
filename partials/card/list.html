@@ -31,11 +31,11 @@
             </div>
             <div class="content">
                 <div class="ui dropdown card-content" dropdown>
-                    {{item.content}}
+                    {{item.content?item.content:'添加描述'}}
                     <div class="menu">
                         <div class="item">
                             <div class="menu"></div>
-                            <textarea type="text" ng-model="item.content"></textarea>
+                            <textarea type="text" placeholder="添加描述" ng-model="item.content"></textarea>
                         </div>
                     </div>
                 </div>
@@ -84,11 +84,7 @@
             </div>
             <div class="actions">
                 <div class="ui black button" ng-click="close()">
-                    取消
-                </div>
-                <div class="ui positive right labeled icon button" ng-click="createProject()">
-                    添加
-                    <i class="checkmark icon"></i>
+                    关闭
                 </div>
             </div>
         </div>
