@@ -37,7 +37,6 @@ define([], function () {
             }else{
                 $scope.selectedMember.push(member);
             }
-            //$scope.selectedMember[member] = !$scope.selectedMember[member];
 
         }
 
@@ -91,7 +90,7 @@ define([], function () {
             $scope.comment = '';
         }
         $scope.addComment=function(){
-            $scope.comments.push({
+            $scope.comments.unshift({
                 user:{
                     username:'RobinFai'
                 },
