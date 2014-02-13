@@ -49,7 +49,7 @@ define([], function () {
         }
         $scope.card = {};
         $scope.addCard = function($index){
-            $scope.boards[$index].items.push({content:this.card[$index]})
+            $scope.boards[$index].items.push({title:this.card[$index]})
             this.card[$index] = '';
             $scope.isShowAddCard[$index] = false;
         }
