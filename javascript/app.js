@@ -5,9 +5,9 @@
  * Time: 下午8:32
  * To change this template use File | Settings | File Templates.
  */
-define(['angular','angularRoute','angularAnimate'],function(angular){
+define(['angular','angularRoute','angularAnimate','angularUI'],function(angular){
     'use strict';
 
-    var app = angular.module('taskItApi', ['ngRoute','ngAnimate']);
+    var app = angular.module('taskItApi', ['ngRoute','ngAnimate','ui']);
     return app;
 })

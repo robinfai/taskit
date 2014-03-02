@@ -10,7 +10,11 @@ require.config({
         angular:'angular',
         angularRoute: 'angular/angular-route',
         angularAnimate: 'angular/angular-animate',
-        dateRangePicker:'lib/daterangepicker'
+        angularUI: 'lib/angular-ui',
+        dateRangePicker:'lib/daterangepicker',
+        jqueryUISortable:'lib/jquery-ui/ui/jquery.ui.sortable',
+        jqueryUIMouse:'lib/jquery-ui/ui/jquery.ui.mouse',
+        jqueryUI:'lib/jquery-ui'
         //jquery:'jquery'
         //angularMocks: '../../bower_components/angular-mocks/angular-mocks',
         //text: '../../bower_components/requirejs-text/text'
@@ -21,6 +25,7 @@ require.config({
             'deps':['jquery'],
             'exports' : 'angular'
         },
+        'angularUI': ['angular','jqueryUI'],
         'angularRoute': ['angular'],
         'angularAnimate': ['angular'],
         'semantic':['jquery'],

@@ -76,13 +76,13 @@ define([], function () {
                 username:'RobinFai'
             },
             create_time:'2013-11-30',
-            comment:'这只是一条评论'
+            comment:'这只是一条评论1'
         },{
             user:{
                 username:'RobinFai'
             },
             create_time:'2013-11-30 12:31',
-            comment:'这是另外一条评论'
+            comment:'这是另外一条评论2'
         },
         ];
 

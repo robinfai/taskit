@@ -35,6 +35,23 @@ define([], function () {
                 ]
             }
         ];
+
+        $scope.sortableOptions = {
+            placeholder: "item",
+            connectWith: ".card-list-container"
+        };
+
+        $scope.logModels = function () {
+            $scope.sortingLog = [];
+            for (var i = 0; i < $scope.rawScreens.length; i++) {
+                var logEntry = $scope.rawScreens[i].map(function (x) {
+                    return x.title;
+                }).join(', ');
+                logEntry = 'container ' + (i+1) + ': ' + logEntry;
+                $scope.sortingLog.push(logEntry);
+            }
+        };
+
         $scope.itemWidth = 350;
         $scope.setBoardWidth = function(){
             $scope.width = ($scope.boards.length + 1) * $scope.itemWidth + 20;

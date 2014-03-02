@@ -2,7 +2,8 @@
 <div class="header item">
     {{board.name}}
 </div>
-<div class="item item-animation" ng-repeat="item in board.items" ng-controller="CardController">
+<div ui-sortable="sortableOptions" class=" card-list-container">
+    <div class="item item-animation" ng-repeat="item in board.items" ng-controller="CardController">
     <div class="colors">
         <span class="color {{color}}" ng-repeat="color in colors">
         </span>
@@ -192,6 +193,7 @@
             {{member | substring:0:2 | uppercase}}
         </div>
     </div>
+</div>
 </div>
 <div class="item" ng-show="isShowAddCard[$index]">
     <textarea id="cardText_{{$index}}" rows="5" ng-model="card[$index]"></textarea>
