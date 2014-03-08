@@ -127,7 +127,9 @@ body.ui.dimmable.dimmed {
 .task.ui.grid {
     padding: 1px 10px;
 }
-
+.task.ui.grid .column{
+    width: 350px;
+}
 .task .row {
     height: 100%;
 }
@@ -474,9 +476,10 @@ body.ui.dimmable.dimmed {
     border: 1px solid #dedede;
 }
 
-.placeholder {
-    width: 50px;
-    height: 70px;
+.ui-sortable-placeholder {
+    width: 150px;
+    min-height: 70px;
+    display: block;
     border: 1px solid #333;
     background: #EEE;
 }

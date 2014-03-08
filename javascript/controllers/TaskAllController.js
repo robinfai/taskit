@@ -36,11 +36,6 @@ define([], function () {
             }
         ];
 
-        $scope.sortableOptions = {
-            placeholder: "item",
-            connectWith: ".card-list-container"
-        };
-
         $scope.logModels = function () {
             $scope.sortingLog = [];
             for (var i = 0; i < $scope.rawScreens.length; i++) {
